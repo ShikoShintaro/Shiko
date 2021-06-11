@@ -1,0 +1,40 @@
+{
+  "name": "shiko-synthesis-one",
+  "version": "1.0.0",
+  "description": "",
+  "main": "shiko-main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Shiko Shintaro",
+  "license": "ISC",
+  "dependencies": {
+    "@discordjs/node-pre-gyp": "^0.3.2",
+    "@ksoft/api": "^3.1.9",
+    "ascii-table": "^0.0.9",
+    "botkit-discord": "^0.1.5",
+    "canvacord": "^5.2.1",
+    "canvas": "^2.8.0",
+    "deezer-public-api": "^1.0.4",
+    "discord-ytdl-core": "^5.0.3",
+    "discord.js": "^12.5.3",
+    "discord.js-pagination": "^1.0.3",
+    "distube": "^2.8.15",
+    "express": "^4.17.1",
+    "ffmpeg-static": "^4.3.0",
+    "fs": "^0.0.1-security",
+    "https-proxy-agent": "^5.0.0",
+    "lyrics-finder": "^21.7.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.13",
+    "opus": "0.0.0",
+    "opusscript": "0.0.8",
+    "os": "^0.1.1",
+    "python": "0.0.4",
+    "soundcloud-downloader": "^1.0.0",
+    "spotify-url-info": "^2.2.3",
+    "yt-search": "^2.8.0",
+    "ytdl-core": "^4.8.2"
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "token": "NzY0NTU2ODYwMjIwNTA2MTIx.X4H_EA.kbGf-g5bF0hijYTTSvL_fsq3T44",
+    "prefix": "s!",
+    "mongoDB_SRV": "mongodb+srv://shikoshintaro:shikoshintaro21@shikosynthesisone.3jlmm.mongodb.net/ShikoSynthesisOne?retryWrites=true&w=majority",
+    "cookie": "http://curl.haxx.se/rfc/cookie_spec.html",
+
+    "colors": {
+        "yes" : "#0bfc00",
+        "no"  : "#ff0000",
+        "join" : "#00f1ff",
+        "leave" : "#0058ff",
+        "answer" :"#0af2ff",
+        "correct" : "#c121ec"
+      }
+}
