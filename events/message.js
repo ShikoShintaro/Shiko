@@ -74,5 +74,7 @@ client.on('message', async message => {
         }
     }
 
-    if (command) command.run(client, message, args)  
+    if (command) command.run(client, message, args);
+
+    //for 8ball
 })

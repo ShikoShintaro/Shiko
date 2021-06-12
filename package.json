@@ -13,7 +13,6 @@
     "@discordjs/node-pre-gyp": "^0.3.2",
     "@ksoft/api": "^3.1.9",
     "ascii-table": "^0.0.9",
-    "botkit-discord": "^0.1.5",
     "canvacord": "^5.2.1",
     "canvas": "^2.8.0",
     "deezer-public-api": "^1.0.4",
