@@ -4,7 +4,7 @@
   "description": "",
   "main": "shiko-main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pm2-runtime start ecosystem.config.js --env production"
   },
   "keywords": [],
   "author": "Shiko Shintaro",
@@ -31,6 +31,7 @@
     "opus": "0.0.0",
     "opusscript": "0.0.8",
     "os": "^0.1.1",
+    "pm2": "^5.1.0",
     "python": "0.0.4",
     "soundcloud-downloader": "^1.0.0",
     "spotify-url-info": "^2.2.3",
