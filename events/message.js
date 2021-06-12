@@ -1,13 +1,29 @@
 const client = require("../shiko-main");
 const config = require("../config/shiko.json");
-const Discord  = require("discord.js");
+const shikoDB = require('../config/shiko.json').shikoDB;
+const { Discord, MessageEmbed } = require("discord.js");
 const prefix = config.prefix
 const { Db } = require('mongodb');
+const Levels = require('discord-xp')
+Levels.setURL(shikoDB)
 
 client.on('message', async message => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
     if (!message.guild) return;
+
+    const randomAmountOfXp = Math.floor(Math.random() * 29) + 1; // Min 1, Max 30
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
+    if (hasLeveledUp) {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send(new MessageEmbed()
+            .setTitle('Yay you leveled UP!!')
+            .setDescription(`${message.author}, congratulations! You have leveled up to **${user.level}**. :tada:`)
+            .setColor(config.colors.yes)
+            .setTimestamp()
+            .setFooter(client.user.username, client.user.displayAvatarURL())
+        );
+    }
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const cmd = args.shift().toLowerCase();
@@ -63,12 +79,12 @@ client.on('message', async message => {
 
         if (invalidPerms.length) {
             const noPermsEmbed = new Discord.MessageEmbed()
-            .setColor(config.colors.no)
-            .setTitle("Aww~~~ You dont have have permss~")
-            .addField('Aweee~~~ you don\'t have permissions to run command:',  `\`${command.name}\``)
-            .addField('Permission Required', `\`${invalidPerms}\``)
-            .setFooter(client.user.username, client.user.displayAvatarURL())
-            .setTimestamp()
+                .setColor(config.colors.no)
+                .setTitle("Aww~~~ You dont have have permss~")
+                .addField('Aweee~~~ you don\'t have permissions to run command:', `\`${command.name}\``)
+                .addField('Permission Required', `\`${invalidPerms}\``)
+                .setFooter(client.user.username, client.user.displayAvatarURL())
+                .setTimestamp()
 
             return message.channel.send(noPermsEmbed);
         }
@@ -78,10 +94,10 @@ client.on('message', async message => {
 
     //for 8ball
     if (
-		(message.content.startsWith("Shiko, ") || (message.author.id == '458158106476806144' && message.content.startsWith("My Servant, "))) &&
-		message.content.endsWith("?")
-		(!isUtilDisabled(disabledUtils, "8ball") || message.member?.hasPermission("ADMINISTRATOR"))
-	) {
-		client.subevents.get("8ball").run(client, message, msgArray, shikoDB);
-	}
+        (message.content.startsWith("Shiko, ") || (message.author.id == '458158106476806144' && message.content.startsWith("My Servant, "))) &&
+        message.content.endsWith("?")
+            (!isUtilDisabled(disabledUtils, "8ball") || message.member?.hasPermission("ADMINISTRATOR"))
+    ) {
+        client.subevents.get("8ball").run(client, message, msgArray, shikoDB);
+    }
 })
