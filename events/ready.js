@@ -7,7 +7,7 @@ client.on('ready', () => {
     console.log('Im ready Mastah');
 })
 
-mongoose.connect(config.mongoDB_SRV, {
+mongoose.connect(config.shikoDB, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useFindAndModify: false,

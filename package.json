@@ -1,7 +1,7 @@
 {
   "name": "shiko-synthesis-one",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Shiko Shintaro's Bot!",
   "main": "shiko-main.js",
   "scripts": {
     "start": "pm2-runtime start ecosystem.config.js --env production"
@@ -27,6 +27,7 @@
     "https-proxy-agent": "^5.0.0",
     "lyrics-finder": "^21.7.0",
     "moment": "^2.29.1",
+    "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
     "opus": "0.0.0",
     "opusscript": "0.0.8",

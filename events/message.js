@@ -2,7 +2,7 @@ const client = require("../shiko-main");
 const config = require("../config/shiko.json");
 const Discord  = require("discord.js");
 const prefix = config.prefix
-
+const { Db } = require('mongodb');
 
 client.on('message', async message => {
     if (message.author.bot) return;
@@ -63,7 +63,7 @@ client.on('message', async message => {
 
         if (invalidPerms.length) {
             const noPermsEmbed = new Discord.MessageEmbed()
-            .setColor("RED")
+            .setColor(config.colors.no)
             .setTitle("Aww~~~ You dont have have permss~")
             .addField('Aweee~~~ you don\'t have permissions to run command:',  `\`${command.name}\``)
             .addField('Permission Required', `\`${invalidPerms}\``)
@@ -77,4 +77,11 @@ client.on('message', async message => {
     if (command) command.run(client, message, args);
 
     //for 8ball
+    if (
+		(message.content.startsWith("Shiko, ") || (message.author.id == '458158106476806144' && message.content.startsWith("My Servant, "))) &&
+		message.content.endsWith("?")
+		(!isUtilDisabled(disabledUtils, "8ball") || message.member?.hasPermission("ADMINISTRATOR"))
+	) {
+		client.subevents.get("8ball").run(client, message, msgArray, shikoDB);
+	}
 })
