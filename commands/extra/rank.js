@@ -2,6 +2,7 @@ const { Discord, MessageEmbed } = require('discord.js')
 const shikoDB = require('../../config/shiko.json')
 const Levels = require('discord-xp')
 const canvacord = require('canvacord')
+const config = require('../../config/shiko.json')
 
 module.exports = {
     name: 'rank',
