@@ -1,4 +1,4 @@
-const { Discord, MessageEmbed } = require('discord.js')
+const { Discord, MessageEmbed, MessageAttachment } = require('discord.js')
 const shikoDB = require('../../config/shiko.json')
 const Levels = require('discord-xp')
 const canvacord = require('canvacord')
@@ -31,7 +31,7 @@ module.exports = {
             .setDiscriminator(message.author.discriminator);
 
             rank.build().then((data) => {
-                const attachment = new Discord.MessageAttachment(data, 'RankCard.png')
+                const attachment = new MessageAttachment(data, 'RankCard.png')
                 message.channel.send(attachment)
             })
     }
