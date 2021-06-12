@@ -1,1 +1,1 @@
-worker: pm2 start Shiko~
+worker: npm run start
