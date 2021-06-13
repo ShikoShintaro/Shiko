@@ -22,6 +22,7 @@
     "discord.js": "^12.5.3",
     "discord.js-pagination": "^1.0.3",
     "distube": "^2.8.15",
+    "erela.js": "^2.3.3",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.3.0",
     "fs": "^0.0.1-security",

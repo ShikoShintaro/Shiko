@@ -11,5 +11,23 @@
         "leave" : "#0058ff",
         "answer" :"#0af2ff",
         "correct" : "#c121ec"
-      }
+    },
+    "Spotify_ClientID": {
+      "description": "Spotify ClientID. This is used if you want to use Spotify features for your bot. (https://developer.spotify.com/dashboard/)",
+      "required": "true"
+    },      
+    "Spotify_ClientSecret": {
+      "description": "Spotify ClientSecret. This is used if you want to use Spotify features for your bot. (https://developer.spotify.com/dashboard/)",
+      "required": "true"
+    },
+    "Lavalink": {
+      "id": "Main",
+      "host": "lava.link",
+      "port": 80,
+      "pass": "youshallnotpass"
+    },
+    "Spotify": {
+      "ClientID": "c644b20ccdcb4f60aaece57fedd3627a", 
+      "ClientSecret": "9e98078a52784358b10753216178b308"
+    }
 }
