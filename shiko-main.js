@@ -4,14 +4,14 @@ const fs = require('fs')
 const { token, config, } = require('.//config/shiko.json')
 const mongoose = require('mongoose')
 const distube = require("distube");
-const DiscordMusicBot = require("./structures/DiscordMusicBot");
+
 
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 client.categories = new Discord.Collection();
 
-client.build();
+
 client.config = config;
 client.queue = new Map();
 module.exports = client;
