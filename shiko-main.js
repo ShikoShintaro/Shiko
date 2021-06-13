@@ -5,7 +5,7 @@ const { token, config, } = require('.//config/shiko.json')
 const mongoose = require('mongoose')
 const distube = require("distube");
 const DiscordMusicBot = require("./structures/DiscordMusicBot");
-const client = new DiscordMusicBot();
+
 
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
