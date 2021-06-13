@@ -1,6 +1,7 @@
 const { Discord, MessageEmbed, MessageAttachment } = require('discord.js')
 const config = require('../../config/shiko.json')
 const canvacord = require('canvacord')
+const Levels = require('discord-xp')
 
 module.exports = {
     name: "leaderboards",
