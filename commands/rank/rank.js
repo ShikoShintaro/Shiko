@@ -15,7 +15,13 @@ module.exports = {
 
         const neededXp = Levels.xpFor(parseInt(user.level) + 1);
 
-        if (!user) return message.channel.send("Seems like this user has not earned any xp so far.");
+        if (!user) return message.channel.send(new MessageEmbed()
+            .setTitle('Uhmm')
+            .setDescription("Seems like this user has not earned any xp so far.")
+            .setColor(config.colors.no)
+            .setTimestamp()
+            .setFooter(client.user.username, client.user.displayAvatarURL())
+        );
 
         // message.channel.send(`> **${target.tag}** is currently level ${user.level}.`);
 
