@@ -1,6 +1,6 @@
 const { MessageEmbed } = require('discord.js')
 const config = require('../../config/shiko.json')
-const { TrackUtils } = require('erela.js')
+
 const levels = {
     none: 0.0,
     low: 0.2,
