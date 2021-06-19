@@ -19,7 +19,7 @@ module.exports = {
         let result = await cs.monthly({
             user: message.author,
             guild: message.guild,
-            amount: 1500000,
+            amount: 150000,
         });
         if (result.error) 
             return message.channel.send ( new MessageEmbed()
