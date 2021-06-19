@@ -1,7 +1,7 @@
 {
     "token": "NzY0NTU2ODYwMjIwNTA2MTIx.X4H_EA.IRa7UOIX8A-z1XRhulx3Y6bleOI",
     "prefix": "s!",
-    "shikoDB": "mongodb+srv://shikoshintaro:shikoshintaro21@shikosynthesisone.3jlmm.mongodb.net/ShikoSynthesisOne?retryWrites=true&w=majority",
+    "shikodb": "mongodb+srv://shikoshintaro:shikoshintaro21@shikosynthesisone.3jlmm.mongodb.net/ShikoDB?retryWrites=true&w=majority",
     "cookie": "http://curl.haxx.se/rfc/cookie_spec.html",
 
     "colors": {
@@ -29,5 +29,5 @@
     "Spotify": {
       "ClientID": "c644b20ccdcb4f60aaece57fedd3627a", 
       "ClientSecret": "9e98078a52784358b10753216178b308"
-    }
+    } 
 }

@@ -18,7 +18,7 @@ function check_if_dj(message, member) {
     var client = message.client;
 
     if (!member) member = message.member;
-    var roleid = client.settings.get(message.guild.id, `djroles`)
+    var roleid = client.settings.get(message.guild, `djroles`)
     if (String(roleid) == "") return false;
 
     var isdj = false,
@@ -163,10 +163,10 @@ function lyricsEmbed(client, message, lyrics, song) {
 async function playsongyes(client, message, queue, song) {
     try {
         let djs = "";
-        if (client.settings.get(message.guild.id, `djroles`).join("") === "") djs = "not setup"
+        if (client.settings.get(message.guild, `djroles`).join("") === "") djs = "not setup"
         else
-            for (let i = 0; i < client.settings.get(message.guild.id, `djroles`).length; i++) {
-                djs += "<@&" + client.settings.get(message.guild.id, `djroles`)[i] + "> | "
+            for (let i = 0; i < client.settings.get(message.guild, `djroles`).length; i++) {
+                djs += "<@&" + client.settings.get(message.guild, `djroles`)[i] + "> | "
             }
 
         let embed1 = new Discord.MessageEmbed()
@@ -191,8 +191,8 @@ async function playsongyes(client, message, queue, song) {
 
         var playingMessage = await message.channel.send(embed1)
 
-        client.settings.set(message.guild.id, playingMessage.id, "playingembed")
-        client.settings.set(message.guild.id, message.channel.id, "playingchannel")
+        client.settings.set(message.guild, playingMessage.id, "playingembed")
+        client.settings.set(message.guild, message.channel.id, "playingchannel")
 
         try {
             await playingMessage.react("⏭");
@@ -300,10 +300,10 @@ async function playsongyes(client, message, queue, song) {
 function curembed(client, message) {
     try {
         let djs = "";
-        if (client.settings.get(message.guild.id, `djroles`).join("") === "") djs = "not setup"
+        if (client.settings.get(message.guild, `djroles`).join("") === "") djs = "not setup"
         else
-            for (let i = 0; i < client.settings.get(message.guild.id, `djroles`).length; i++) {
-                djs += "<@&" + client.settings.get(message.guild.id, `djroles`)[i] + "> | "
+            for (let i = 0; i < client.settings.get(message.guild, `djroles`).length; i++) {
+                djs += "<@&" + client.settings.get(message.guild, `djroles`)[i] + "> | "
             }
 
         let queue = client.distube.getQueue(message); 

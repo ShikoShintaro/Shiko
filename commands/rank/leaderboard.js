@@ -1,33 +1,32 @@
-const { Discord, MessageEmbed, MessageAttachment } = require('discord.js')
-const config = require('../../config/shiko.json')
-const canvacord = require('canvacord')
+const Discord = require('discord.js')
 const Levels = require('discord-xp')
+const config = require('../../config/shiko.json')
+
 
 module.exports = {
-    name: "leaderboards",
-    description: "Checks Leaderboard on the server",
+    name: 'leaderboards',
+    category: 'rank',
     aliases: ['lb'],
 
-    run: async (client, message, args, shikoDB) => {
-        const roleColor =
-            message.guild.me.displayHexColor === "#000000"
-                ? "#ffffff"
-                : message.guild.me.displayHexColor;
-
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
+    run: async (client, message, args, shikodb) => {
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild, 10); // We grab top 10 users with most xp in the current server.
 
         if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-        const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true);
+        const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true); // We process the leaderboard.
 
-        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+        const lb = leaderboard.map(
+            (e) => 
+            `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`); 
 
-        const Leaderboard = new MessageEmbed()
-            .setColor(roleColor)
-            .setAuthor('Leaderboards')
+        
+        const leaderb = new Discord.MessageEmbed()
+            .setColor(config.colors.join)
+            .setAuthor('LEADERBOARDS')
             .setDescription(lb.join('\n\n'))
             .setTimestamp()
             .setFooter(client.user.username, client.user.displayAvatarURL())
-        message.channel.send(Leaderboard)
+            
+        message.channel.send(leaderb)
     }
 }

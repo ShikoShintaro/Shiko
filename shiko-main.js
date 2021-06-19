@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const client = new Discord.Client()
 const fs = require('fs')
 const { token, config, } = require('.//config/shiko.json')
-const mongoose = require('mongoose')
+const mongodb = require('mongodb')
 const distube = require("distube");
 
 

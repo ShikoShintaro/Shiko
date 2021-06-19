@@ -3,8 +3,9 @@ const client = require('../shiko-main')
 const currentDate = new Date();
 const config = require('../config/shiko.json')
 
-client.on('guildMemberAdd', async (member) => { 
-    const Channel = member.guild.channels.cache.get('765210713726910554') 
+
+client.on('guildMemberAdd', async (member) => {
+    const Channel = member.guild.channels.cache.get('765210713726910554')
     const embed = new Discord.MessageEmbed()
         .setColor(config.colors.yes)
         .setAuthor('Welcome new Member', 'https://i.imgur.com/0VwsVVC.jpg')
