@@ -15,7 +15,7 @@ client.on('ready', () => {
         ["My beloved one", "WATCHING"],
         ["Neko world", "WATCHING"],
         ["Earth", "WATCHING"],
-        ["in Shadow Realm", "COMPETING"]
+        ["Shadow Realm", "COMPETING"]
     ];
     setInterval(() => {
 
