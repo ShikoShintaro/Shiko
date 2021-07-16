@@ -15,7 +15,10 @@ module.exports = {
         if (!args[0])
             return message.channel.send(new Discord.MessageEmbed()
                 .setTitle('No Member Mentioned')
-                .addField('Pls Specify a user')
+                .addFields({
+                    name: 'Pls Specify a user',
+                    value: 'Just mention a user'
+                })
                 .setColor(config.colors.no)
                 .setTimestamp()
                 .setFooter(client.user.username, client.user.displayAvatarURL())
@@ -32,7 +35,10 @@ module.exports = {
 
         if (mentionedMember.id === message.author.id)
             return message.channel.send(new Discord.MessageEmbed()
-                .addField('You cannot kick yourself BAKA!!')
+                .addFields({
+                    name: 'You cannot kick yourself BAKA!!',
+                    value: 'Just dont please'
+                })
                 .setTimestamp()
                 .setFooter(client.user.username, client.user.displayAvatarURL())
             )

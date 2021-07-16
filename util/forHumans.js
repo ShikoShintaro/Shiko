@@ -23,4 +23,4 @@ function forHumans(o) {
     return e.trim();
   }
 
-  module.exports = forHumans;
+  module.exports.config = forHumans;

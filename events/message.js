@@ -8,7 +8,8 @@ const { Db } = require('mongodb');
 const CurrencySystem = require('currency-system')
 const cooldowns = new Map();
 
-const Levels = require('discord-xp')
+const Levels = require('discord-xp');
+const { subevents } = require("../shiko-main");
 Levels.setURL(shikodb)
 
 const cs = new CurrencySystem;
@@ -19,10 +20,13 @@ cs.setDefaultBankAmount(1000)
 
 /**
  * @param {Db} shikodb
+ * @param {Discord.Client} client
+ * @param {Discord.Message} message
+ *  @param {Discord.Collection} subevents  
 */
 
 
-client.on('message', async message => {
+client.on('message', async (message) => {
     if (message.author.bot) return;
     if (!message.content.startsWith(prefix)) return;
     if (!message.guild) return;
@@ -41,27 +45,31 @@ client.on('message', async message => {
             .setFooter(client.user.username, client.user.displayAvatarURL())
         );
     }
+
     const args = message.content.slice(prefix.length).trim().split(/ +/g)
     const cmd = args.shift().toLowerCase();
     if (cmd.length == 0) return;
     let command = client.commands.get(cmd)
     if (!command) command = client.commands.get(client.aliases.get(cmd));
 
-    if(!cooldowns.has(command.name)){
+
+    if (!cooldowns.has(command.name)) {
         cooldowns.set(command.name, new Collection());
     }
+
 
     const current_time = Date.now()
     const time_stamps = cooldowns.get(command.name)
     const cooldown_amount = [command.cooldown] * 1000;
 
-    if(time_stamps.has(message.author.id)){
+
+    if (time_stamps.has(message.author.id)) {
         const expiration_time = time_stamps.get(message.author.id) + cooldown_amount;
 
-        if (current_time < expiration_time){
-            const time_left = (expiration_time - current_time ) / 1000;
+        if (current_time < expiration_time) {
+            const time_left = (expiration_time - current_time) / 1000;
 
-            return message.channel.send( new MessageEmbed()
+            return message.channel.send(new MessageEmbed()
                 .setTitle('Oi youre too fast!')
                 .setDescription('Please wait: \n' + `\`${time_left.toFixed(1)}\`\n` + 'more seconds to use again\n' + `**${command.name}**`)
                 .setColor(config.colors.no)
@@ -71,8 +79,11 @@ client.on('message', async message => {
         }
     }
 
+
     time_stamps.set(message.author.id, current_time)
     setTimeout(() => time_stamps.delete(message.author.id), cooldown_amount)
+
+
 
     const ValidPerms = [
         "ADMINISTRATOR",
@@ -108,6 +119,7 @@ client.on('message', async message => {
         "MANAGE_EMOJIS",
     ]
 
+
     if (command.permissions) {
         let invalidPerms = []
         for (const permission of command.permissions) {
@@ -132,6 +144,7 @@ client.on('message', async message => {
             return message.channel.send(noPermsEmbed);
         }
     }
+
     try {
         command.run(client, message, args, shikodb)
     } catch (err) {
@@ -144,4 +157,15 @@ client.on('message', async message => {
         )
         console.log(err)
     }
+    const msgArray = message.content.split(/\s+/g);
+    const args1 = msgArray.slice(1);
+    
+    client.on("message", (message) => {
+        if (message.content.startsWith("Shiko under the bottle cap,") && message.content.endsWith("what is your words wisdom?")){
+            client.subevents.get("shikoswordsofwisdom").run(client, message, args, msgArray, shikodb)
+        } 
+        else if (message.content.startsWith("Shiko,") && message.content.endsWith("?")) {
+            client.subevents.get("8ball").run(client, message, args, msgArray, shikodb)
+        }
+    })
 })

@@ -9,13 +9,13 @@ client.on('ready', () => {
     const activity_list = [
         ["With my master~", "PLAYING"],
         ["My Master's actions", "WATCHING"],
-        ["**s!help**", "LISTENING"],
+        ["s!help", "LISTENING"],
         ["Manager", "WATCHNG"],
         ["With Manager", "PLAYING"],
         ["My beloved one", "WATCHING"],
         ["Neko world", "WATCHING"],
         ["Earth", "WATCHING"],
-        ["Shadow Realm", "COMPETING"]
+        ["Sirius A (Alpha Canis Majoris)", "COMPETING"]
     ];
     setInterval(() => {
 

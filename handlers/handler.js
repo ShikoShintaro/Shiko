@@ -1,6 +1,7 @@
 const fs = require('fs')
 const ascii = require('ascii-table')
 let table = new ascii("Commnand List");
+let table2 = new ascii("Subevents")
 table.setHeading('Commands', 'Status');
 
 module.exports = client => {
@@ -35,4 +36,39 @@ module.exports = client => {
             }
         }
     })
+    // fs.readdirSync('./events/subevents/').forEach(file => {
+    //     const subevents = fs.readdirSync('./events/subevents/').filter((files) => files.endsWith('js'))
+
+    //     for (let files of subevents) {
+    //         let get = require(`../events/subevents/${files}`)
+
+    //         if (get.name) {
+    //             client.subevents.get(get.name, get)
+    //             table2.addRow(files, 'Success')
+    //         } else {
+    //             table2.addRow(files, 'Failed');
+    //             continue;
+    //         }
+    //     }
+    // })
+
+    fs.readdir('./events/subevents/', (err, files) => {
+        console.log("Loading subevents");
+            if (err) throw err;
+                files.forEach((file, i) => {
+                    const props = require(`../events/subevents/${file}`);
+                        console.log(`${i + 1}. ${file} loaded`);
+                            client.subevents.set(props.config.name, props);
+        });
+    });
+
+    fs.readdir("./util/", (err, files) => {
+        console.log("Loading utilities");
+            if (err) throw err;
+                files.forEach((file, i) => {
+                    let props = require(`../util/${file}`);
+                        console.log(`${i + 1}. ${file} loaded`);
+                            client.utils.set(props.config.name, props);
+        });
+    });
 }

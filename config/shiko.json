@@ -3,6 +3,9 @@
     "prefix": "s!",
     "shikodb": "mongodb+srv://shikoshintaro:shikoshintaro21@shikosynthesisone.3jlmm.mongodb.net/ShikoDB?retryWrites=true&w=majority",
     "cookie": "http://curl.haxx.se/rfc/cookie_spec.html",
+    "osuAPI": "mZRMJjEKijXRtC626GBb2M09xY2lvdEutu2tYirH",
+    "osuID": "8435",
+    "discordAPI" : "NDU4MTU4MTA2NDc2ODA2MTQ0.YMohjQ.jo6yEcEsR3Z7CjlammFLLOntkzA",
 
     "colors": {
         "yes" : "#0bfc00",

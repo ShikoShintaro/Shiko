@@ -15,7 +15,10 @@ module.exports = {
         if (!args[0])
             return message.channel.send(new Discord.MessageEmbed()
                 .setTitle('No Member Mentioned')
-                .addField('Pls Specify a user')
+                .addFields({
+                    name: 'Pls Specify a user',
+                    value: 'Just mention bwuh'
+                })
                 .setColor(config.colors.no)
                 .setTimestamp(currentDate.toLocaleString())
                 .setFooter(client.user.username, client.user.displayAvatarURL())
@@ -24,7 +27,7 @@ module.exports = {
         if (!mentionedMember)
             return message.channel.send(new Discord.MessageEmbed()
                 .setTitle('I cannot ban the mentioned user')
-                .addField('Awee~ This mentioned user is higher role than mine or this user is my Fate~')
+                .setDescription('Awee~ This mentioned user is higher role than mine or this user is my Fate~')
                 .setColor(config.colors.no)
                 .setTimestamp(currentDate.toLocaleString())
                 .setFooter(client.user.username, client.user.displayAvatarURL())
@@ -32,7 +35,10 @@ module.exports = {
 
         if (mentionedMember.id === message.author.id)
             return message.channel.send(new Discord.MessageEmbed()
-                .addField('You cannot ban yourself BAKA!!')
+                .addFields({
+                    name : 'You cannot ban yourself BAKA!!',
+                    value : 'Just dont please'
+                })
                 .setTimestamp(currentDate.toLocaleString())
                 .setColor(config.colors.no)
                 .setFooter(client.user.username, client.user.displayAvatarURL())
