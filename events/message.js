@@ -165,7 +165,13 @@ client.on('message', async (message) => {
             client.subevents.get("shikoswordsofwisdom").run(client, message, args, msgArray, shikodb)
         } 
         else if (message.content.startsWith("Shiko,") && message.content.endsWith("?")) {
-            client.subevents.get("8ball").run(client, message, args, msgArray, shikodb)
+            client.utils.get("8ball").run(client, message, args, msgArray, shikodb)
+        }
+        else if (message.content.startsWith("ShikoFriends")) {
+            client.subevents.get("shikosfriends").run(client, message, args, msgArray, shikodb)
+        }
+        else if (message.content.startsWith("HiShikoShintaro")) {
+            client.subevents.get("shikointro").run(client, message, args, msgArray, shikodb)
         }
     })
 })

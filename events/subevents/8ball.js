@@ -1,46 +1,9 @@
-const Discord = require('discord.js')
-
-
-
-module.exports.run = (client, message, args, msgArray, shikodb) => {
-    const Answer = [
-        "Hmmm i dunno",
-        "W-wha- NO!",
-        "N-nande? are you curious?",
-        "Yems~",
-        "No",
-        "Pretty sure....",
-        "Definitely",
-        "Im not sure..",
-        "Sorry what? can you repeat it?",
-        "I dont\'t know master~",
-        "E-eh???"
-    ]
-
-    const randomIndex = Math.max(1, Math.floor(Math.random() * Answer.length));
-
-    let msg = args.join(" ");
-    
-
-    let answer = Answer[randomIndex]
-
-    let rolecheck;
-    try {
-        rolecheck = message.member.roles.color.hexColor
-    } catch (e) {
-        rolecheck = "#000000"
-    }
-
-    const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.avatarURL({ dynamic: true }))
-        .setColor(rolecheck)
-        .setFooter("Shiko~")
-        .setDescription(`**Q**: ${msg}\n**A**: ${answer}`)
-
-    message.channel.send(embed).catch(console.error);
-}
-
+module.exports.run = (client, message, msgArray, shikodb) => {
+    let args = msgArray.slice(0);
+    let cmd = client.utils.get("response");
+    cmd.run(message, args, shikodb)
+};
 
 module.exports.config = {
-    name: '8ball',
+    name: "8ball"
 }
