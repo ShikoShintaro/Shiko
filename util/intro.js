@@ -17,20 +17,20 @@ module.exports.run = (client, message, args, msgArray, shikodb) => {
             }
         )
         .addFields(
-            {   
+            {
                 name: 'Twitter:',
                 value: 'https://twitter.com/ShikoShintaro',
             },
-            { 
-                name: 'Youtube', 
-                value: 'https://www.youtube.com/channel/UCX8NTJwJ4YRnckeOPnW7nBA', 
+            {
+                name: 'Youtube',
+                value: 'https://www.youtube.com/channel/UCX8NTJwJ4YRnckeOPnW7nBA',
             },
-            {   
+            {
                 name: 'Facebook Page',
                 value: 'https://www.facebook.com/gaming/ShikoShempai/',
             }
         )
-        .setColor(config.colors.join)
+        .setColor(config.colors.no)
         .setTimestamp()
         .setFooter(client.user.username, client.user.displayAvatarURL())
     )

@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
-
+const config = require('../../config/shiko.json')
 
 
 module.exports.run = (client, message, args, msgArray, shikodb) => {
     const embed1 = new Discord.MessageEmbed()
-        .setAuthor('Shiko Shintaro\'s Introduction')
+        .setAuthor('Shiko Shintaro\'s Introduction', 'https://cdn.discordapp.com/attachments/867019849125068810/868860218409381908/unknown.png')
         .setDescription(`Shiko Shintaro is a vtuber who plays games who was freetime after her part time work as a Maid`)
         .addFields(
             {
@@ -32,7 +32,7 @@ module.exports.run = (client, message, args, msgArray, shikodb) => {
                 value: "Shiko is a Part timer to earn money for her life after being abandoned by her family."
             }
         )
-        .setColor("#00FFF2")
+        .setColor(config.colors.no)
         .setTimestamp()
         .setFooter("Shiko Shintaro")
     
