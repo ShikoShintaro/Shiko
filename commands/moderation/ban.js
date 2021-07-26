@@ -5,9 +5,9 @@ const config = require('../../config/shiko.json')
 
 module.exports = {
     name: 'ban',
-    aliases: ['b'],
+    aliases: ['bonk'],
     permissions: ['BAN_MEMBERS'],
-    description: 'Bans a member in one hit',
+    description: 'Bonks a member in one hit',
 
     run: async (client, message, args) => {
         const mentionedMember = message.mentions.members.first() || message.guild.members.cache.get(args[0])

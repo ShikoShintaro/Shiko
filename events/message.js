@@ -165,7 +165,7 @@ client.on('message', async (message) => {
             client.subevents.get("shikoswordsofwisdom").run(client, message, args, msgArray, shikodb)
         } 
         else if (message.content.startsWith("Shiko,") && message.content.endsWith("?")) {
-            client.utils.get("8ball").run(client, message, args, msgArray, shikodb)
+            client.utils.get("response").run(client, message, args, msgArray, shikodb)
         }
         else if (message.content.startsWith("ShikoFriends")) {
             client.subevents.get("shikosfriends").run(client, message, args, msgArray, shikodb)

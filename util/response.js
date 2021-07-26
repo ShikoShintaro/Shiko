@@ -31,7 +31,7 @@ module.exports.run = (client, message, args) => {
     }
 
     const embed = new Discord.MessageEmbed()
-        .setAuthor(message.author.tag, message.author.avatarURL({ dynamic: true }))
+        // .setAuthor(message.author.tag, message.author.avatarURL({ dynamic: true }))
         .setColor(rolecheck)
         .setFooter("Shiko~")
         .setDescription(answer)
@@ -45,5 +45,5 @@ module.exports.run = (client, message, args) => {
 
 
 module.exports.config = {
-    name: '8ball',
+    name: 'response',
 }
