@@ -109,13 +109,19 @@ module.exports.run = async (client, message, args, msgArray, shikodb) => {
             }
         )
         .setColor("#0F00FF")
-     message.channel.send(shiko1)
-            message.channel.send(shiko2)
-             message.channel.send(shiko3)
-              message.channel.send(shiko4)
-               message.channel.send(shiko5)
-                message.channel.send(shiko6)
-            
+    
+    const shiko = [
+        shiko1,
+        shiko2,
+        shiko3,
+        shiko4,
+        shiko5, 
+        shiko6,
+    ]
+
+    const randomIndex = Math.max(1, Math.floor(Math.random() * shiko.length));
+
+    await message.channel.send(shiko[randomIndex])
 }
 
 module.exports.config = {

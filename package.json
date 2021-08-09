@@ -35,6 +35,7 @@
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
     "node-fetch": "^2.6.1",
+    "nodesu": "^0.7.2",
     "ojsama": "^2.2.0",
     "opus": "0.0.0",
     "opusscript": "0.0.8",
