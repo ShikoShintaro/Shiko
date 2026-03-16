@@ -1,3 +1,5 @@
+// CREDITS TO RIAN8337
+
 const { Client, Message, DiscordAPIError, MessageEmbed } = require('discord.js');
 let cd = new Set();
 const config = require('../../config/shiko.json')
